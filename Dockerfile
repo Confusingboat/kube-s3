@@ -30,4 +30,4 @@ RUN mkdir -p "$MNT_POINT"
 
 CMD echo "${AWS_KEY}:${AWS_SECRET_KEY}" > /etc/passwd-s3fs && \
     chmod 0400 /etc/passwd-s3fs && \
-    /usr/bin/s3fs $S3_BUCKET $MNT_POINT -f -o url=${S3_ENDPOINT},allow_other,use_cache=/tmp,max_stat_cache_size=${S3_MAX_CACHE_SIZE},stat_cache_expire=${S3_CACHE_EXPIRY},retries=${S3_RETRIES},connect_timeout=${S3_CONNECT_TIMEOUT}
+    /usr/bin/s3fs $S3_BUCKET $MNT_POINT -f -o url=${S3_ENDPOINT},allow_other,use_path_request_style,use_cache=/tmp,max_stat_cache_size=${S3_MAX_CACHE_SIZE},stat_cache_expire=${S3_CACHE_EXPIRY},retries=${S3_RETRIES},connect_timeout=${S3_CONNECT_TIMEOUT}
